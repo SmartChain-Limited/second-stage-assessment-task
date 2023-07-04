@@ -5,11 +5,21 @@
 ### 1. SETTING UP THE PROJECT
 **- Pull The repository to you local machine**
 
+**- Create a new branch with your name**
+
+    git checkout -b firstname_lastname
+
+**- Set upstream branch**
+
+    git branch --set-upstream-to origin firstname_lastname
+
 **- Install all the packages**
 
     npm install
 
 **- To start the app in dev mode run**
+
+    npm run dev
 
 ### 2. PROJECT STRUCTURE
 **- TYPES**
@@ -42,3 +52,19 @@
 
         /* code */
 * use react context API to manage state across components if you need to 
+
+### 3. Submission
+**Make sure you commit all your changes in your branch**
+
+    git add *
+    git commit -m "Done with task"
+
+**Push your code to submit**
+
+    git push origin firstname_lastname
+
+
+
+## BEST OF LUCK
+
+Please feel free to contact us via email if you have any questions

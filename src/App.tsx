@@ -1,4 +1,3 @@
-import React from "react"
 import { SendRegitrationForm } from "./Helper/Backend"  /* use this function to simulate the Backend */
 
 /*EXample */

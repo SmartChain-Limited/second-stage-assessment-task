@@ -12,7 +12,7 @@ const SendRegitrationForm = async(data: User):Promise<Response>=>{
 				message: "Registration sucessful"
 			}
 			for(const info in data ){
-				if (data[info] === null || data[info] === undefined || data[info].length < 1){
+				if (data[info as keyof typeof data] === null || data[info as keyof typeof data] === undefined || data[info as keyof typeof data].length < 1){
 					res.error = true
 					res.message = `${info} is not valid`
 					resolve(res)

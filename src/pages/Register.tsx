@@ -42,12 +42,13 @@ const Register = () => {
     }
   };
 
-
+console.log(formData);
   return (
     <div className="bg-whiterelative w-[100vw] h-[100vh] flex flex-col items-center  px-[22px]">
       <img src={eclipse} alt="eclipse" width="100%" className="hidden md:flex absolute bottom-0 left-0 max-w-[500px]" />
 
-      <div className=" mt-[87px] mr-[75px] w-[100%] flex justify-end text-right">
+  { !isSuccess && (
+  <>   <div className=" mt-[87px] mr-[75px] w-[100%] flex justify-end text-right">
         <img src={logo} alt='logo' />
       </div>
 
@@ -125,7 +126,7 @@ const Register = () => {
               <Input
                 type="text"
                 value={formData.graduateYear}
-                name="   graduateYear  "                     
+                name="graduateYear"                     
                 onchange={handleInputChange} placeholder={'Graduation Year'}
                 style={'flex-1'}
 
@@ -154,16 +155,19 @@ const Register = () => {
         </div>
       </form>
 
+      </>
+   )   }
+
       {
         isSuccess && (
-          <div>
+          <div className='h-[100vh] w-[100vw] flex flex-col gap-5 justify-center items-center'>
             <img src={succesImg} alt='successful' />
 
-            <h2>Registration Successful!</h2>
+            <h1 className='text-[48px]'>Registration Successful!</h1>
 
             <Button type={'button'} onclick={() => { }}>Download App</Button>
 
-            <Link to='#'> Back to homepage</Link>
+            <span className='underline'> Back to homepage</span>
           </div>
         )
       }

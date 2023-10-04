@@ -41,9 +41,9 @@ const sendformData = async () => {
     try {
       const response: Response = await SendRegitrationForm(formData);
       if (response.error) {
-        // console.error('Registration error:', response.message);
+        console.error('Registration error:', response.message);
       } else {
-        // console.log('Registration success:', response.message);
+        console.log('Registration success:', response.message);
       }
     } catch (error) {
     //   console.error('An error occurred while sending registration data:', error);

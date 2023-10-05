@@ -46,7 +46,7 @@ const App = (): JSX.Element => {
       // If successful, navigate to the next form
       nextForm();
     } catch (error) {
-      // Handle the error (e.g., display an error message to the user)
+      // Handle the error
       console.error("Registration failed:", error);
     }
   };

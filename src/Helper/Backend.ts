@@ -23,6 +23,8 @@ const SendRegitrationForm = async(data: User):Promise<Response>=>{
 	})
 }
 
+
+
 export {
 	SendRegitrationForm
 }

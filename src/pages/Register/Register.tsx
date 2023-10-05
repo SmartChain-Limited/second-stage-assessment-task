@@ -16,6 +16,7 @@ const Register = () => {
   const { formData, setformData, sendformData } = useUserRegistration();
   const [isNextDisabled, setIsNextDisabled] = useState(true);
 
+
   const {
     fullnameError,
     universityError,
@@ -61,6 +62,7 @@ const Register = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await sendformData();
+    
     setIsSuccessful(true);
   };
 

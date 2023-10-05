@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import errorIcon from '../assets/errorIcon.svg';
 import Visibility from '../assets/Visibility';
 import { InputProps } from '../type/Input';
+import calendar from '../assets/Calendar.svg'
+import arrowDown from '../assets/arrowDown.svg'
+
 
 const Input = ({ type, value, name, placeholder, onchange, error, selectOptions, style }: InputProps) => {
   const [visibility, toggleVisibility] = useState(false);
@@ -13,7 +16,7 @@ const Input = ({ type, value, name, placeholder, onchange, error, selectOptions,
 
 
   return (
-    <div className={`h-[80px] mb-[10px]  ${style}`}>
+    <div className={`h-[80px] mb-[5px]  ${style}`}>
       <div
         className={`bg-white pl-[42px] border border-1 border-[${error ? '#EB3223' : '#7D97C0'}] rounded-[15px] flex flex-row items-center`}
         style={{
@@ -21,48 +24,80 @@ const Input = ({ type, value, name, placeholder, onchange, error, selectOptions,
         }}
       >
         {type === 'select' ? (
+
+          <>
           <select
             value={value}
             name={name}
             onChange={onchange}
-            className={`w-[100%] focus:outline-0 rounded-[15px] w-[100%] py-[16px] placeholder-[#243A5E] text-[#ACACAC] ${style}`}
-            >
+            className={`select-input w-[100%] focus:outline-0 rounded-[15px] w-[100%] py-[16px] placeholder-[#243A5E] text-[#ACACAC] ${style}`}
+           
+           required>
        {selectOptions && selectOptions.map((option) => (
   <option key={option.value} value={option.value}>
     {option.label}
   </option>
 ))}
           </select>
+
+        
+                <div className="pr-5 ml-[-17.1px] mt-[-2.7px]">
+                  <img src={arrowDown} alt="arrow down" /> 
+                </div>
+            
+            
+          </>
+
         ) : 
 
-        // type === 'calendar' ? (
-        //     <input
-        //     type='date'
-        //     value={value}
-        //     name={name}
-        //       selected={selectedDate}
-        //       onChange={handleDateChange}
-        //       className={`w-[100%] focus:outline-0 rounded-[15px] w-[100%] py-[16px] placeholder-[#243A5E] text-[${error ? '#EB3223' : '#243A5E'}]`}
-        //     />
+        type === 'date' ? (
+          <>
+          <input
+            type='date'
+            value={value}
+            name={name}
+              onChange={onchange}
+              placeholder={placeholder}
+              className={`date-input w-[100%] h-[57px] focus:outline-0 rounded-[15px] w-[100%] py-[16px] placeholder-[#243A5E] text-[${error ? '#EB3223' : '#243A5E'}]`}
+           required
+           />
 
-        // )
+            {
+              type === 'date' ? (
+                <div className="pr-5 -ml-[40px]">
+                  <img src={calendar} alt="Calendar" /> 
+                </div>
+              ) : null
+            }
+            </>
+
+        )
+        :
         
          (
           <>
             <input
-              type={visibility ? 'email' || 'text' : type}
-              value={value}
+type={visibility && type === 'password' ? 'text' : type}
+value={value}
               name={name}
               placeholder={placeholder}
               onChange={onchange}
-              className={`w-[100%] focus:outline-0 rounded-[15px] w-[100%] py-[16px] placeholder-[#243A5E] text-[${error ? '#EB3223' : '#243A5E'}]`}
-            />
+              className={`  w-[100%] focus:outline-0 rounded-[15px] w-[100%] py-[16px] placeholder-[#243A5E] text-[${error ? '#EB3223' : '#243A5E'}]`}
+           
+           required/>
 
-            {type === 'password' && (
+            {
+            type === 'password' && (
               <div onClick={handleToggleVisibility} className="pr-5">
                 {visibility ? <Visibility /> : <Visibility />}
               </div>
-            )}
+            )
+            
+}
+
+   
+
+
           </>
         )}
       </div>

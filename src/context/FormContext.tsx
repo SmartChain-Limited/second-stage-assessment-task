@@ -3,18 +3,13 @@ import React, { useContext, useState, ReactNode } from 'react';
 import { SendRegitrationForm } from '../Helper/Backend';
 import { Response } from '../type/Response';
 import { User } from '../type/user';
+import { FormContextProps } from '../type/Form';
 
 
 
-interface UserRegistrationContextProps {
-    formData: User;
-  setformData: React.Dispatch<React.SetStateAction<User>>;
-  sendformData: () => Promise<void>;
-}
+const UserRegistrationContext = React.createContext<FormContextProps | undefined>(undefined);
 
-const UserRegistrationContext = React.createContext<UserRegistrationContextProps | undefined>(undefined);
-
-export function useUserRegistration(): UserRegistrationContextProps {
+export function useUserRegistration(): FormContextProps {
   const context = useContext(UserRegistrationContext);
   if (context === undefined) {
     throw new Error('useUserRegistration must be used within a RegistrationProvider');
@@ -41,12 +36,11 @@ const sendformData = async () => {
     try {
       const response: Response = await SendRegitrationForm(formData);
       if (response.error) {
-        console.error('Registration error:', response.message);
+        // console.error('Registration error:', response.message);
       } else {
-        console.log('Registration success:', response.message);
+        // console.log('Registration success:', response.message);
       }
     } catch (error) {
-    //   console.error('An error occurred while sending registration data:', error);
     }
   };
 

@@ -1,6 +1,6 @@
 // App.tsx
 import React from 'react';
-import Register from './pages/Register';
+import Register from './pages/Register/Register';
 import { RegistrationProvider } from './context/FormContext';
 
 function App() {

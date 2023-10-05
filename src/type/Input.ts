@@ -10,7 +10,7 @@ interface SelectOption {
 
 
 interface InputProps {
-    type: 'text' | 'email' | 'password' | 'select' | 'calendar'; 
+    type: 'text' | 'email' | 'password' | 'select' | 'date'; 
     value: string;
     name: string;
     placeholder?: string;
@@ -21,9 +21,6 @@ interface InputProps {
   }
 
   export type {
-	InputProps
+	InputProps, StepperProps
 }
 
-export type {
-    StepperProps
-}

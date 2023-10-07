@@ -55,10 +55,16 @@ const useForm3 = (next: (prev: number) => void) => {
       const address = JSON.parse(localStorage.address);
       localStorage.setItem("education", JSON.stringify(form));
       setLoading(true);
-      const res = await SendRegitrationForm({ ...user, ...address, ...form });
-      console.log(res);
+      //  if(res.message ==="Registration sucessful")
+      try {
+        const res = await SendRegitrationForm({ ...user, ...address, ...form });
+        console.log(res);
+        // setLoading(false);
+        next(3);
+      } catch (err) {
+        throw err;
+      }
       setLoading(false);
-      next(3);
     }
   };
 
